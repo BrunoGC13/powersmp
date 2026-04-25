@@ -1,0 +1,7 @@
+name: powersmp
+version: '1.0'
+main: net.tgc.powersmp.Main
+api-version: '1.21'
+authors: [ TheGamerCrew (BrunoGC13) ]
+description: GamingBlock SMP Base Plugin
+website: https://gamingblock.de/

@@ -1,0 +1,137 @@
+ 1. Creating an Ability                                                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+  Implement the Ability interface and register it:                                                                                                                                                                                  
+   
+  public class FireballAbility implements Ability {                                                                                                                                                                                 
+      @Override public String getId()          { return "fireball"; }
+      @Override public String getDisplayName() { return "Fireball"; }                                                                                                                                                               
+      @Override public Set<AbilityTrigger> getTriggers() {
+          return Set.of(AbilityTrigger.RIGHT_CLICK, AbilityTrigger.SNEAK_RIGHT_CLICK);                                                                                                                                              
+      }                                                                                                                                                                                                                             
+      @Override public double getPowerCost()   { return 20; }                                                                                                                                                                       
+      @Override public long getCooldownTicks() { return 60; } // 3 seconds                                                                                                                                                          
+                                                                                                                                                                                                                                    
+      @Override                                                                                                                                                                                                                     
+      public void execute(AbilityContext ctx) {                                                                                                                                                                                     
+          Player player = ctx.getPlayer();                  
+          // Cancel the interact event to avoid accidental block placement                                                                                                                                                          
+          if (ctx.getEvent() instanceof PlayerInteractEvent e) e.setCancelled(true);                                                                                                                                                
+                                                                                                                                                                                                                                    
+          Fireball fb = player.launchProjectile(Fireball.class);                                                                                                                                                                    
+          fb.setShooter(player);                                                                                                                                                                                                    
+      }                                                                                                                                                                                                                             
+  }                                                         
+
+  // In your plugin's onEnable:                                                                                                                                                                                                     
+  PowerSMPAPI.registerAbility(new FireballAbility());
+                                                                                                                                                                                                                                    
+  Available triggers: RIGHT_CLICK, LEFT_CLICK, SNEAK_RIGHT_CLICK, SNEAK_LEFT_CLICK, HIT_ENTITY                                                                                                                                      
+   
+  ---                                                                                                                                                                                                                               
+  2. Creating a Custom Item (standalone)                    
+                                                                                                                                                                                                                                    
+  Extend CustomItem and pass the abilities in the constructor:
+                                                                                                                                                                                                                                    
+  public class FireSword extends CustomItem {               
+      public FireSword(Plugin plugin) {                                                                                                                                                                                             
+          super(new NamespacedKey(plugin, "fire_sword"), List.of(new FireballAbility()));
+      }                                                                                                                                                                                                                             
+                                                            
+      @Override                                                                                                                                                                                                                     
+      public ItemStack buildItem() {                        
+          ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);                                                                                                                                                                  
+          ItemMeta meta = stack.getItemMeta();                                                                                                                                                                                      
+          meta.displayName(Component.text("Fire Sword", NamedTextColor.RED));                                                                                                                                                       
+          // Optional: meta.setCustomModelData(3001); ← see section 5                                                                                                                                                               
+          stack.setItemMeta(meta);                                                                                                                                                                                                  
+          return stack;                                                                                                                                                                                                             
+      }                                                                                                                                                                                                                             
+  }                                                                                                                                                                                                                                 
+                                                            
+  // Register + give to player:
+  PowerSMPAPI.registerItem(new FireSword(this));
+  player.getInventory().addItem(                                                                                                                                                                                                    
+      PowerSMPAPI.createItem(new NamespacedKey(this, "fire_sword"))
+  );                                                                                                                                                                                                                                
+                                                            
+  ---                                                                                                                                                                                                                               
+  3. Creating a Gem (applies to any sword)                  
+                                                                                                                                                                                                                                    
+  Make it look like a regular material (emerald, diamond, etc.) but extend CustomItem with abilities. GemApplicationListener automatically handles combining it with swords in a crafting table:
+                                                                                                                                                                                                                                    
+  public class PowerRubyItem extends CustomItem {           
+      public PowerRubyItem(Plugin plugin) {                                                                                                                                                                                         
+          super(new NamespacedKey(plugin, "power_ruby"), List.of(new FireballAbility()));
+      }                                                                                                                                                                                                                             
+                                                            
+      @Override                                                                                                                                                                                                                     
+      public ItemStack buildItem() {                        
+          ItemStack stack = new ItemStack(Material.REDSTONE); // visual base
+          ItemMeta meta = stack.getItemMeta();                                                                                                                                                                                      
+          meta.displayName(Component.text("Power Ruby", NamedTextColor.RED));
+          meta.setCustomModelData(2003); // for custom texture                                                                                                                                                                      
+          stack.setItemMeta(meta);                                                                                                                                                                                                  
+          return stack;
+      }                                                                                                                                                                                                                             
+  }                                                         
+                                                                                                                                                                                                                                    
+  That's it — any sword + Power Ruby in a crafting table outputs that sword with the ability.                                                                                                                                       
+                                                                                                                                                                                                                                    
+  ---                                                                                                                                                                                                                               
+  4. Registering a Recipe                                   
+                                                                                                                                                                                                                                    
+  // Shaped
+  NamespacedKey key = new NamespacedKey(this, "my_item");                                                                                                                                                                           
+  ShapedRecipe recipe = new ShapedRecipe(key, PowerSMPAPI.createItem(key));
+  recipe.shape(" R ", "RRR", " R ");                                                                                                                                                                                                
+  recipe.setIngredient('R', Material.REDSTONE);
+  PowerSMPAPI.registerRecipe(recipe);                                                                                                                                                                                               
+                                                            
+  // Shapeless                                                                                                                                                                                                                      
+  ShapelessRecipe sl = new ShapelessRecipe(key, result);    
+  sl.addIngredient(Material.DIAMOND);                                                                                                                                                                                               
+  sl.addIngredient(Material.STICK);                                                                                                                                                                                                 
+  PowerSMPAPI.registerRecipe(sl);                                                                                                                                                                                                   
+                                                                                                                                                                                                                                    
+  ---                                                       
+  5. Custom Textures / Models
+                                                                                                                                                                                                                                    
+  Step 1 — set CustomModelData in your item's buildItem():
+  meta.setCustomModelData(2001); // use unique numbers per item                                                                                                                                                                     
+                                                            
+  Step 2 — create a resource pack with this structure:                                                                                                                                                                              
+  assets/minecraft/models/item/emerald.json   ← override the base item model
+  {                                                                                                                                                                                                                                 
+    "parent": "item/generated",                                                                                                                                                                                                     
+    "textures": { "layer0": "item/emerald" },
+    "overrides": [                                                                                                                                                                                                                  
+      { "predicate": { "custom_model_data": 2001 }, "model": "item/power_emerald" }                                                                                                                                                 
+    ]                                                                              
+  }                                                                                                                                                                                                                                 
+                                                            
+  Step 3 — add your texture and model:                                                                                                                                                                                              
+  assets/minecraft/textures/item/power_emerald.png                                                                                                                                                                                  
+  assets/minecraft/models/item/power_emerald.json 
+  {                                                                                                                                                                                                                                 
+    "parent": "item/generated",                                                                                                                                                                                                     
+    "textures": { "layer0": "item/power_emerald" }
+  }                                                                                                                                                                                                                                 
+                                                            
+  Numbers already reserved by this plugin: 2001 (Power Emerald), 2002 (Power Diamond).
+                                                                                                                                                                                                                                    
+  ---
+  6. Commands, Power & Hearts                                                                                                                                                                                                       
+                                                                                                                                                                                                                                    
+  // Register a command from your plugin
+  PowerSMPAPI.registerCommand(this, "mycommand", executor, tabCompleter);                                                                                                                                                           
+                                                                                                                                                                                                                                    
+  // Power
+  PowerSMPAPI.consumePower(player, 30);   // returns false if not enough                                                                                                                                                            
+  PowerSMPAPI.addPower(player, 10);                                                                                                                                                                                                 
+  PowerSMPAPI.setPower(player, 50);                                                                                                                                                                                                 
+  PowerSMPAPI.getMaxPower(player);        // default 100                                                                                                                                                                            
+                                                                                                                                                                                                                                    
+  // Hearts                                                 
+  PowerSMPAPI.addHearts(player, 2);                                                                                                                                                                                                 
+  PowerSMPAPI.removeHearts(player, 1);                      
+  PowerSMPAPI.setHearts(player, 10);      // 1 heart = 2 HP; min 1         
