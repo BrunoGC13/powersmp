@@ -38,9 +38,9 @@ public class EscapeAbility implements Ability {
 
         for (Player nearby : nearbyPlayers) {
             nearby.sendRichMessage("<gray>[<yellow>PowerSMP<gray>] <white>The player <green> " + p.getName() + " <white> has triggered an Escape gem!");
-            PotionEffect weakness = new PotionEffect(PotionEffectType.WEAKNESS, 100, 1); // 100 ticks = 5s*20t
-            PotionEffect slowness = new PotionEffect(PotionEffectType.SLOWNESS, 60, 1); // 60 ticks = 3s*20t
-            PotionEffect blindness = new PotionEffect(PotionEffectType.BLINDNESS, 60, 1);
+            PotionEffect weakness = new PotionEffect(PotionEffectType.WEAKNESS, 160, 1); // 100 ticks = 8s*20t
+            PotionEffect slowness = new PotionEffect(PotionEffectType.SLOWNESS, 160, 1); // 60 ticks = 8s*20t
+            PotionEffect blindness = new PotionEffect(PotionEffectType.BLINDNESS, 160, 1);
 
             nearby.addPotionEffect(weakness);
             nearby.addPotionEffect(slowness);

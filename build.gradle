@@ -1,10 +1,12 @@
 plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.24"
 }
 
 group = 'net.tgc'
-version = '1.0'
+version = '2.0'
 
 repositories {
     mavenCentral()
@@ -12,18 +14,43 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
+    maven {
+        url = "https://jitpack.io"
+    }
+    maven {
+        name = "mythicmobs-repo"
+        url = "https://mvn.lumine.io/repository/maven-public/"
+    }
+    maven {
+        name = "citizens-repo"
+        url = "https://repo.citizensnpcs.co/"
+    }
+    maven {
+        url = 'https://repo.extendedclip.com/releases/'
+    }
+    maven { url "https://maven.enginehub.org/repo/" }
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    // compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.21.11-R0.1-SNAPSHOT")
+
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7") {
+        exclude group: "org.bukkit", module: "bukkit"
+    }
+    compileOnly "io.lumine:Mythic-Dist:5.7.2"
+    compileOnly "net.citizensnpcs:citizens-main:2.0.37-SNAPSHOT"
+    compileOnly 'me.clip:placeholderapi:2.12.2'
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.16'
+    implementation("net.kyori:adventure-nbt:5.2.0")
+    compileOnly 'net.luckperms:api:5.5'
 }
 
 tasks {
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("1.21")
+        minecraftVersion("1.21.11")
     }
 }
 

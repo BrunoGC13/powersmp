@@ -12,12 +12,11 @@ public class DeathListener implements Listener {
         Player victim = event.getEntity();
         Player killer = victim.getKiller();
 
-        // Victim loses 2 hearts
-        HeartManager.removeHearts(victim, 2);
-
         // Killer (if a different player) gains 1 heart
         if (killer != null && !killer.equals(victim)) {
             HeartManager.addHearts(killer, 1);
+            // Victim loses 2 hearts
+            HeartManager.removeHearts(victim, 1);
         }
     }
 }

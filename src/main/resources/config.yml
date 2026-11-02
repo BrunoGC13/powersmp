@@ -1,0 +1,82 @@
+# database for cross-server support
+plugin-prefix: "<gray>[<yellow>PowerSMP<gray>] "
+
+# economy
+economy: true
+default-balance: 100
+
+# always multiply the amount of hearts by 2
+hearts:
+  max-hearts: 40
+
+# rules
+enableRules: true
+rules:
+  - "Be kind"
+  - "No hacking or swearing"
+  - "Have fun"
+
+# worlds
+worlds:
+  world: world
+  nether: world_nether
+  end: world_the_end
+
+nether:
+  # if the player needs a specific requirement for entering the nether
+  netherLevelRequirements: true
+  requiredLevel: 3
+  skill:
+    netherSkillRequirements: true
+    requiredSkill: hunting_skill
+    requiredSkillLevel: 5
+
+xp-rewards:
+  skills-levelup: 1.5
+  advance_objective: 2
+  complete_objective: 10
+
+target-multiplier: 1.75
+default-skills-target: 100
+
+mysql:
+  enabled: false
+  user: root
+  password: secretPassword
+  database: powersmp
+  address: 127.0.0.1
+  port: 3306
+
+# enchantments to override
+overrideEnchants:
+  protection: 8
+  sharpness: 8
+  efficiency: 10
+  unbreaking: 8
+  breach: 6
+  density: 6
+
+# entity data
+mobSpawnOverride: false
+mobHealthOverride: true
+
+entities:
+  minHealth: 5
+  maxHealth: 80
+
+  # shows entity name and health like a player name tag
+  showNameTag: false
+
+mobs:
+  creeper:
+    chargedChance: 0.2
+
+  skeleton:
+    badlandsChance: 0.3
+    powerMin: 2
+    powerMax: 8
+
+  zombie:
+    gearChance: 0.5
+    powerMin: 1
+    powerMax: 5

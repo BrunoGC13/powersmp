@@ -1,0 +1,377 @@
+prices:
+  items:
+    # ── Ores & Minerals ───────────────────────────────────────
+    - type: DIAMOND
+      price: 55.0
+
+    - type: EMERALD
+      price: 10.0
+
+    - type: IRON_INGOT
+      price: 6.0
+
+    - type: RAW_IRON
+      price: 4.0
+
+    - type: GOLD_INGOT
+      price: 14.0
+
+    - type: RAW_GOLD
+      price: 10.0
+
+    - type: COPPER_INGOT
+      price: 3.0
+
+    - type: RAW_COPPER
+      price: 2.0
+
+    - type: COAL
+      price: 2.0
+
+    - type: LAPIS_LAZULI
+      price: 4.0
+
+    - type: REDSTONE
+      price: 3.0
+
+    - type: AMETHYST_SHARD
+      price: 5.0
+
+    - type: ECHO_SHARD
+      price: 80.0
+
+    - type: NETHERITE_INGOT
+      price: 200.0
+
+    - type: NETHERITE_SCRAP
+      price: 50.0
+
+    - type: QUARTZ
+      price: 3.0
+
+    - type: ANCIENT_DEBRIS
+      price: 120.0
+
+    - type: GLOWSTONE_DUST
+      price: 4.0
+
+    # ── Common Mob Drops ──────────────────────────────────────
+    - type: ROTTEN_FLESH
+      price: 1.0
+
+    - type: BONE
+      price: 2.0
+
+    - type: ARROW
+      price: 1.0
+
+    - type: STRING
+      price: 2.0
+
+    - type: SPIDER_EYE
+      price: 3.0
+
+    - type: GUNPOWDER
+      price: 4.0
+
+    - type: ENDER_PEARL
+      price: 15.0
+
+    - type: BLAZE_ROD
+      price: 12.0
+
+    - type: BLAZE_POWDER
+      price: 6.0
+
+    - type: GHAST_TEAR
+      price: 25.0
+
+    - type: MAGMA_CREAM
+      price: 8.0
+
+    - type: SLIME_BALL
+      price: 4.0
+
+    - type: PRISMARINE_SHARD
+      price: 6.0
+
+    - type: PRISMARINE_CRYSTALS
+      price: 8.0
+
+    - type: NETHER_STAR
+      price: 500.0
+
+    - type: TOTEM_OF_UNDYING
+      price: 300.0
+
+    - type: ELYTRA
+      price: 800.0
+
+    - type: SHULKER_SHELL
+      price: 60.0
+
+    - type: WITHER_SKELETON_SKULL
+      price: 80.0
+
+    - type: LEATHER
+      price: 5.0
+
+    - type: FEATHER
+      price: 2.0
+
+    - type: INK_SAC
+      price: 3.0
+
+    - type: GLOW_INK_SAC
+      price: 8.0
+
+    # ── Food ──────────────────────────────────────────────────
+    - type: BREAD
+      price: 2.0
+
+    - type: COOKED_BEEF
+      price: 4.0
+
+    - type: COOKED_CHICKEN
+      price: 3.0
+
+    - type: COOKED_PORKCHOP
+      price: 4.0
+
+    - type: GOLDEN_APPLE
+      price: 30.0
+
+    - type: ENCHANTED_GOLDEN_APPLE
+      price: 250.0
+
+    # ── Wood & Nature ─────────────────────────────────────────
+    - type: OAK_LOG
+      price: 1.0
+
+    - type: SPRUCE_LOG
+      price: 1.0
+
+    - type: BIRCH_LOG
+      price: 1.0
+
+    - type: JUNGLE_LOG
+      price: 1.0
+
+    - type: ACACIA_LOG
+      price: 1.0
+
+    - type: DARK_OAK_LOG
+      price: 1.0
+
+    - type: MANGROVE_LOG
+      price: 1.0
+
+    - type: CHERRY_LOG
+      price: 2.0
+
+    - type: BAMBOO
+      price: 1.0
+
+    - type: SUGAR_CANE
+      price: 1.0
+
+    - type: WHEAT
+      price: 1.0
+
+    - type: CACTUS
+      price: 1.0
+
+    - type: HONEYCOMB
+      price: 4.0
+
+    # ── Nether ────────────────────────────────────────────────
+    - type: NETHERRACK
+      price: 1.0
+
+    - type: NETHER_BRICK
+      price: 2.0
+
+    - type: SOUL_SAND
+      price: 3.0
+
+    - type: SOUL_SOIL
+      price: 3.0
+
+    - type: CRIMSON_STEM
+      price: 2.0
+
+    - type: WARPED_STEM
+      price: 2.0
+
+    - type: SHROOMLIGHT
+      price: 5.0
+
+    # ── End ───────────────────────────────────────────────────
+    - type: END_STONE
+      price: 2.0
+
+    - type: CHORUS_FRUIT
+      price: 4.0
+
+    - type: PURPUR_BLOCK
+      price: 3.0
+
+    # ── Misc ──────────────────────────────────────────────────
+    - type: OBSIDIAN
+      price: 3.0
+
+    - type: CRYING_OBSIDIAN
+      price: 10.0
+
+    - type: SCULK
+      price: 2.0
+
+    - type: SCULK_CATALYST
+      price: 20.0
+
+    - type: EXPERIENCE_BOTTLE
+      price: 6.0
+
+    - type: WOOL
+      price: 2.0
+
+    # ── Blocks ────────────────────────────────────────────────
+    - type: COBBLESTONE
+      price: 0.5
+
+    - type: COBBLED_DEEPSLATE
+      price: 0.8
+
+    - type: STONE
+      price: 0.5
+
+    - type: DEEPSLATE
+      price: 1.0
+
+    - type: GRAVEL
+      price: 0.5
+
+    - type: DIRT
+      price: 0.3
+
+    - type: SAND
+      price: 0.5
+
+    - type: SANDSTONE
+      price: 1.0
+
+    - type: GRANITE
+      price: 0.5
+
+    - type: DIORITE
+      price: 0.5
+
+    - type: ANDESITE
+      price: 0.5
+
+    - type: TUFF
+      price: 0.5
+
+    - type: CALCITE
+      price: 0.5
+
+    # ── Resource Blocks ───────────────────────────────────────
+    - type: IRON_BLOCK
+      price: 54.0
+
+    - type: GOLD_BLOCK
+      price: 126.0
+
+    - type: COPPER_BLOCK
+      price: 27.0
+
+    - type: DIAMOND_BLOCK
+      price: 495.0
+
+    - type: EMERALD_BLOCK
+      price: 90.0
+
+    - type: COAL_BLOCK
+      price: 18.0
+
+    - type: LAPIS_BLOCK
+      price: 36.0
+
+    - type: REDSTONE_BLOCK
+      price: 27.0
+
+    - type: AMETHYST_BLOCK
+      price: 45.0
+
+    - type: NETHERITE_BLOCK
+      price: 1800.0
+
+    - type: QUARTZ_BLOCK
+      price: 12.0
+
+    - type: GLOWSTONE
+      price: 16.0
+
+    - type: OBSIDIAN
+      price: 3.0
+
+    - type: CRYING_OBSIDIAN
+      price: 10.0
+
+    # ── Ore Blocks ────────────────────────────────────────────
+    - type: COAL_ORE
+      price: 3.0
+
+    - type: DEEPSLATE_COAL_ORE
+      price: 4.0
+
+    - type: IRON_ORE
+      price: 5.0
+
+    - type: DEEPSLATE_IRON_ORE
+      price: 6.0
+
+    - type: GOLD_ORE
+      price: 11.0
+
+    - type: DEEPSLATE_GOLD_ORE
+      price: 13.0
+
+    - type: COPPER_ORE
+      price: 3.0
+
+    - type: DEEPSLATE_COPPER_ORE
+      price: 4.0
+
+    - type: DIAMOND_ORE
+      price: 50.0
+
+    - type: DEEPSLATE_DIAMOND_ORE
+      price: 55.0
+
+    - type: EMERALD_ORE
+      price: 9.0
+
+    - type: DEEPSLATE_EMERALD_ORE
+      price: 11.0
+
+    - type: LAPIS_ORE
+      price: 5.0
+
+    - type: DEEPSLATE_LAPIS_ORE
+      price: 6.0
+
+    - type: REDSTONE_ORE
+      price: 4.0
+
+    - type: DEEPSLATE_REDSTONE_ORE
+      price: 5.0
+
+    - type: NETHER_QUARTZ_ORE
+      price: 4.0
+
+    - type: NETHER_GOLD_ORE
+      price: 8.0
+
+    - type: GILDED_BLACKSTONE
+      price: 10.0

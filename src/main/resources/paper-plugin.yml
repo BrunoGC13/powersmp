@@ -5,3 +5,189 @@ api-version: '1.21'
 authors: [ TheGamerCrew (BrunoGC13) ]
 description: GamingBlock SMP Base Plugin
 website: https://gamingblock.de/
+load: STARTUP
+bootstrapper: net.tgc.powersmp.registry.Bootstrapper
+softdepend: ["PlaceholderAPI", "WorldGuard"]
+dependencies:
+  server:
+    Vault:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    CombatLog:
+      load: AFTER
+      required: true
+      join-classpath: true
+    LuckPerms:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    MythicMobs:
+      load: AFTER
+      required: false
+      join-classpath: true
+    ModelEngine:
+      load: AFTER
+      required: false
+      join-classpath: false
+    Citizens:
+      load: AFTER
+      required: false
+      join-classpath: true
+
+permissions:
+  # ─────────────────────────────────────────────
+  # General administration
+  # ─────────────────────────────────────────────
+
+  powersmp.admin:
+    description: Allows access to PowerSMP administrative commands
+    default: op
+
+  powersmp.specialloc.command:
+    description: Allows use of the special location command
+    default: op
+
+  powersmp.menu.open.other:
+    description: Allows opening menus for other players
+    default: op
+
+  # ─────────────────────────────────────────────
+  # Economy and player-stat administration
+  # ─────────────────────────────────────────────
+
+  powersmp.coins.admin:
+    description: Allows modifying and viewing other players' coin balances
+    default: op
+
+  powersmp.hearts.admin:
+    description: Allows modifying other players' hearts
+    default: op
+
+  powersmp.power.admin:
+    description: Allows modifying other players' power
+    default: op
+
+  # ─────────────────────────────────────────────
+  # Menu and GUI commands
+  # ─────────────────────────────────────────────
+
+  powersmp.command.menu.open:
+    description: Allows use of the openmenu command
+    default: op
+
+  powersmp.commands.quests:
+    description: Allows opening the quest menu
+    default: true
+
+  powersmp.commands.skills:
+    description: Allows opening the skills menu
+    default: true
+
+  powersmp.commands.gems:
+    description: Allows opening the gem shop
+    default: true
+
+  powersmp.commands.recipes:
+    description: Allows opening the recipe book
+    default: true
+
+  powersmp.commands.profile:
+    description: Allows opening player profiles
+    default: true
+
+  powersmp.commands.secretstrongholdshop:
+    description: Allows opening the Secret Stronghold shop
+    default: true
+
+  powersmp.commands.multisell:
+    description: Allows using the multi-sell command
+    default: true
+
+  powersmp.commands.sell:
+    description: Allows using the sell command
+    default: true
+
+  # ─────────────────────────────────────────────
+  # Civilization commands
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.civilization:
+    description: Allows use of the civilization command
+    default: true
+
+  powersmp.command.civilization.create:
+    description: Allows creating a civilization
+    default: true
+
+  powersmp.command.civilization.join:
+    description: Allows joining a civilization
+    default: true
+
+  # ─────────────────────────────────────────────
+  # Fast travel
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.fast_travel:
+    description: Allows opening the fast travel dialog
+    default: true
+
+  powersmp.fast_travel.spawn:
+    description: Allows fast travel to spawn
+    default: true
+
+  powersmp.fast_travel.secret_stronghold:
+    description: Allows fast travel to the Secret Stronghold
+    default: false
+
+  powersmp.fast_travel.nether_dungeon:
+    description: Allows fast travel to the Nether Dungeon
+    default: false
+
+  # ─────────────────────────────────────────────
+  # Teleport commands
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.tpa:
+    description: Allows sending teleport requests
+    default: true
+
+  powersmp.commands.tpahere:
+    description: Allows requesting another player to teleport to you
+    default: true
+
+  powersmp.commands.tpaccept:
+    description: Allows accepting teleport requests
+    default: true
+
+  powersmp.commands.tpdeny:
+    description: Allows denying teleport requests
+    default: true
+
+  # ─────────────────────────────────────────────
+  # AFK commands
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.afk:
+    description: Allows using the AFK command
+    default: true
+
+  powersmp.commands.afk.admin:
+    description: Allows changing another player's AFK state
+    default: op
+
+  # ─────────────────────────────────────────────
+  # Orders
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.order:
+    description: Allows use of the order command
+    default: true
+
+  # ─────────────────────────────────────────────
+  # Withdraw hearts
+  # ─────────────────────────────────────────────
+
+  powersmp.commands.withdrawhearts:
+    description: Allows withdrawing hearts
+    default: true

@@ -1,0 +1,15 @@
+package net.tgc.powersmp.menus;
+
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+public abstract class Item {
+    private final int slot;
+    public Item(int slot) {
+        this.slot = slot;
+    }
+    public final int getSlot() {
+        return slot;
+    }
+    public abstract ItemStack getItem();
+}

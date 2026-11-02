@@ -19,6 +19,7 @@ public class PlayerDataManager {
     public static final int DEFAULT_HEARTS = 10;
     public static final double DEFAULT_MAX_POWER = 100.0;
     public static final double POWER_REGEN_PER_SECOND = 2.0;
+    private double MAX_HEARTS;
 
     private PlayerDataManager() {}
 
@@ -32,6 +33,7 @@ public class PlayerDataManager {
         powerKey    = new NamespacedKey(plugin, "power");
         maxPowerKey = new NamespacedKey(plugin, "max_power");
         powerBarKey = new NamespacedKey(plugin, "power_bar");
+        MAX_HEARTS = plugin.getConfig().getDouble("hearts.max-hearts", 20);
     }
 
     // -------------------------------------------------------------------------
@@ -59,6 +61,7 @@ public class PlayerDataManager {
 
     private void applyMaxHealth(Player player, int hearts) {
         double maxHp = hearts * 2.0;
+
         AttributeInstance attr = player.getAttribute(Attribute.MAX_HEALTH);
         if (attr != null) {
             attr.setBaseValue(maxHp);
@@ -66,6 +69,12 @@ public class PlayerDataManager {
                 player.setHealth(maxHp);
             }
         }
+    }
+
+    public boolean applyNewHeartsExceedsLimit(Player p, int hearts) {
+        double maxHp = hearts * 2.0;
+
+        return maxHp > MAX_HEARTS;
     }
 
     // -------------------------------------------------------------------------

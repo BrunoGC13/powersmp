@@ -1,6 +1,11 @@
 package net.tgc.powersmp.api.item;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextDecoration;
+import net.tgc.powersmp.Main;
 import net.tgc.powersmp.api.ability.Ability;
+import net.tgc.powersmp.recipe.RecipeBookRegistry;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -60,10 +65,16 @@ public class CustomItemRegistry {
                     .map(Ability::getId)
                     .reduce((a, b) -> a + "," + b)
                     .orElse("");
-            pdc.set(new NamespacedKey(plugin, ABILITY_IDS_KEY), PersistentDataType.STRING, abilityIds);
+
+            pdc.set(
+                    new NamespacedKey(plugin, ABILITY_IDS_KEY),
+                    PersistentDataType.STRING,
+                    abilityIds
+            );
         }
 
         stack.setItemMeta(meta);
+
         return stack;
     }
 

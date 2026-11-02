@@ -1,0 +1,259 @@
+quests:
+  frontier:
+    name: "<green>The Frontier"
+    icon: COMPASS
+    description: "Learn the basics and prepare for the world beyond spawn."
+    quests:
+      gather_wood:
+        name: "A Simple Beginning"
+        reward: 8
+        reward_material: OAK_LOG
+        action:
+          type: BREAK
+          material: OAK_LOG
+          amount: 16
+
+      craft_tools:
+        name: "Tools of Survival"
+        reward: 16
+        reward_material: TORCH
+        action:
+          type: CRAFT
+          material: STONE_PICKAXE
+          amount: 1
+
+      find_iron:
+        name: "Beneath the Surface"
+        reward: 1
+        reward_material: IRON_PICKAXE
+        action:
+          type: BREAK
+          material: IRON_ORE
+          amount: 10
+
+      arm_yourself:
+        name: "Ready for Danger"
+        reward: 1
+        reward_material: IRON_SWORD
+        action:
+          type: CRAFT
+          material: IRON_SWORD
+          amount: 1
+
+      survive_the_night:
+        name: "First Blood"
+        reward: 1
+        reward_custom_item: "powersmp:power_emerald"
+        action:
+          type: KILL
+          material: ZOMBIE
+          amount: 10
+
+  mining:
+    name: "<aqua>Mining Expedition"
+    icon: IRON_PICKAXE
+    description: "Descend into the earth and uncover valuable materials."
+    quests:
+      coal_miner:
+        name: "Fuel for the Journey"
+        reward: 32
+        reward_material: TORCH
+        action:
+          type: BREAK
+          material: COAL_ORE
+          amount: 20
+
+      iron_miner:
+        name: "Ironworker"
+        reward: 16
+        reward_material: IRON_INGOT
+        action:
+          type: BREAK
+          material: IRON_ORE
+          amount: 20
+
+      redstone_miner:
+        name: "Strange Red Dust"
+        reward: 24
+        reward_material: REDSTONE
+        action:
+          type: BREAK
+          material: REDSTONE_ORE
+          amount: 32
+
+      diamond_miner:
+        name: "A Valuable Discovery"
+        reward: 4
+        reward_material: DIAMOND
+        action:
+          type: BREAK
+          material: DIAMOND_ORE
+          amount: 5
+
+      master_miner:
+        name: "Master of the Deep"
+        reward: 1
+        reward_custom_item: "powersmp:resonite_crystal"
+        action:
+          type: BREAK
+          material: DEEPSLATE_DIAMOND_ORE
+          amount: 3
+
+  hunting:
+    name: "<red>Hunter's Path"
+    icon: IRON_SWORD
+    description: "Prove your strength against the creatures of the world."
+    quests:
+      hunt_cows:
+        name: "Know Your Prey"
+        reward: 16
+        reward_material: COOKED_BEEF
+        action:
+          type: KILL
+          material: COW
+          amount: 8
+
+      hunt_skeletons:
+        name: "Bony Opposition"
+        reward: 16
+        reward_material: ARROW
+        action:
+          type: KILL
+          material: SKELETON
+          amount: 10
+
+      hunt_spiders:
+        name: "Into the Web"
+        reward: 16
+        reward_material: STRING
+        action:
+          type: KILL
+          material: SPIDER
+          amount: 12
+
+      hunt_creepers:
+        name: "Explosive Problems"
+        reward: 2
+        reward_material: GUNPOWDER
+        action:
+          type: KILL
+          material: CREEPER
+          amount: 10
+
+      hunt_endermen:
+        name: "Eyes in the Darkness"
+        reward: 1
+        reward_custom_item: "powersmp:power_diamond"
+        action:
+          type: KILL
+          material: ENDERMAN
+          amount: 5
+
+  crafting:
+    name: "<yellow>The Artisan"
+    icon: CRAFTING_TABLE
+    description: "Master the tools and equipment needed by every adventurer."
+    quests:
+      make_torches:
+        name: "Light the Way"
+        reward: 32
+        reward_material: TORCH
+        action:
+          type: CRAFT
+          material: TORCH
+          amount: 16
+
+      bake_bread:
+        name: "Food for the Road"
+        reward: 16
+        reward_material: BREAD
+        action:
+          type: CRAFT
+          material: BREAD
+          amount: 8
+
+      craft_armor:
+        name: "Proper Protection"
+        reward: 1
+        reward_material: IRON_CHESTPLATE
+        action:
+          type: CRAFT
+          material: IRON_CHESTPLATE
+          amount: 1
+
+      craft_diamond_tools:
+        name: "Diamond Craftsmanship"
+        reward: 2
+        reward_material: DIAMOND
+        action:
+          type: CRAFT
+          material: DIAMOND_PICKAXE
+          amount: 1
+
+      craft_a_shield:
+        name: "Hold the Line"
+        reward: 1
+        reward_custom_item: "powersmp:elias_pendant"
+        action:
+          type: CRAFT
+          material: SHIELD
+          amount: 1
+
+  stronghold:
+    name: "<light_purple>The Stronghold"
+    icon: NETHER_STAR
+    description: "Investigate the strange powers surrounding the Secret Stronghold."
+    quests:
+      redstone_constructs:
+        name: "The First Construct"
+        reward: 16
+        reward_material: REDSTONE
+        action:
+          type: KILL
+          material: RedstoneZombie
+          amount: 5
+
+      prove_your_strength:
+        name: "A Test of Power"
+        reward: 1
+        reward_material: DIAMOND
+        action:
+          type: KILL
+          material: RedstoneZombie
+          amount: 15
+
+      starlight_threat:
+        name: "Things That Should Not Be"
+        reward: 32
+        reward_material: GLOWSTONE_DUST
+        action:
+          type: KILL
+          material: Starlight
+          amount: 10
+
+      break_the_constructs:
+        name: "Silence the Machines"
+        reward: 1
+        reward_custom_item: "powersmp:power_emerald"
+        action:
+          type: KILL
+          material: RedstoneZombie
+          amount: 25
+
+      resonance:
+        name: "Awakened Resonance"
+        reward: 1
+        reward_custom_item: "powersmp:power_diamond"
+        action:
+          type: KILL
+          material: Starlight
+          amount: 20
+
+      final_reward:
+        name: "The Door Remembers"
+        reward: 1
+        reward_custom_item: "powersmp:primal_ember_pickaxe"
+        action:
+          type: BREAK
+          material: OBSIDIAN
+          amount: 32
